@@ -40,7 +40,7 @@ for(j in 1:p){
   pause()
 }
 
-#rm lstat crim과 mdev.1간 산점도
+#rm,lstat,crim과 mdev.1간 산점도가 유의해보임
 
 final <- lm(medv.1~rm+lstat+log(crim,2))
 summary(final)
