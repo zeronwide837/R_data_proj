@@ -83,7 +83,7 @@ teams.LAN <- subset(teams.1, teamID == "LAN")
 R.average.LAN <- ts(teams.LAN$R/teams.LAN$G, start=1965)
 plot(R.average.LAN, xlim=c(1965,2015), ylim=c(3,6), type="o", xlab="year", ylab="run average", main="LA Dodgers")
 abline(v=seq(1970,2010,10), lty="dotted", col="blue")
-#LA Dodgers팀의 게임당 편귱 득점, 1965년 이후
+#LA Dodgers팀의 게임당 평균 득점, 1965년 이후
 
 teams.NYA <- subset(teams.1, teamID == "NYA")
 R.average.NYA <- ts(teams.NYA$R/teams.NYA$G, start=1965)
