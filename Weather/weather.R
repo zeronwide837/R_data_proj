@@ -17,6 +17,7 @@ table(RainTomorrow.1)
 
 plot(MinTemp, RainTomorrow.1+rnorm(nrow(weather),0,0.05),col=c("red","blue")[unclass(RainTomorrow)],pch=20,ylab="RainTomorrow",main="weather")
 #rnorm은 임의로 더해진 오차. unlcass를 이용해 yes/no를 기준으로 색 칠함
+abline(h=c(0,1), lty="dotted")
 
 #연속 공변량 MinTemp와 더미형 반응변수 y간 관계를 보는 데 산점도는 한계가 있음
 
