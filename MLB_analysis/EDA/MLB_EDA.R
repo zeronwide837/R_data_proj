@@ -67,7 +67,7 @@ text(SOA[playerID == "parkch01"], HRA[playerID=="parkch01"], "*", col="blue", ce
 
 BBA <- BB / IPouts
 HA <- H / IPouts
-plot(BBA ~ HA, xlab="H average", ylab="BB average", main = "MLB 2001, Pitching")
+plot(BBA ~ HA, xlab="HA average", ylab="BB average", main = "MLB 2001, Pitching")
 lines(lowess(BBA ~ HA), col = "red", lwd = 2)
 #평균 피안타와 평균 볼넷의 관계
 
@@ -87,9 +87,6 @@ boxplot(ERA ~ league, xlab="ERA", horizontal=T)
 #AL과 NL만 표시
 #ERA가 NL이 AL보다 상대적으로 작음
 
-windows(100,100)
-par(mfrow=c(4,1))
-
 ##투수 그룹 간 비교
 library(Lahman)
 pitch.01 <- subset(Pitching, yearID == 2001)
@@ -100,14 +97,14 @@ with(pitch.01, plot(G,GS, ylim=c(0,40), main="MLB 2001, Pitching"))
 e1 <- runif(nrow(pitch.01), -0.5, 0.5) #균일분포 난수 생성
 e2 <- runif(nrow(pitch.01), -0.5, 0.5)
 with(pitch.01, plot(G+e1, GS+e2, ylim=c(0,40), main="MLB 2001, Pitching"))
-
-with(pitch.01, plot(G+e1, GS+e2, ylim=c(0,40), main="MLB 2001, Pitching"))
 abline(h=10, col="red", lwd=2) #가로 구분선
 segments(20,0,20,10,col="red",lwd=2) #세로 구분선
 
 gr <- with(pitch.01, ifelse(GS >= 10, 1, ifelse(G>=20,2,3)))
 table(gr)
 #그룹1(GS>=10)의 투수는 191명, 그룹2(GS<10,G>=20) 의 투수는 219, 그룹3(GS<10, G<20)의 투수는 242명
+
+par(mfrow=c(1,3))
 
 with(pitch.01, boxplot(ERA ~ gr, names = c("grp.1", "grp.2", "grp.3"), main = "MLB 2001, by Pitcher Group")) #투수 그룹별 ERA
 
