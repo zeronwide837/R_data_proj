@@ -6,8 +6,8 @@ str(parkch)
 names(parkch)
 
 with(parkch, range(yearID))
-range(parkch$yearID) #yearID 는 integer(32bit)
-class(parkch$yearID)
+range(parkch$yearID) 
+class(parkch$yearID) #yearID 는 integer(32bit)
 
 with(parkch, table(teamID))
 
